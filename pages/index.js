@@ -12,7 +12,7 @@ export default function Component() {
     return (
       <>
         <Flex w="100%">
-          <Sidebar />
+          <Sidebar name={session.user.name} image={session.user.image} />
           <Flex
             pos="absolute"
             top="50%"

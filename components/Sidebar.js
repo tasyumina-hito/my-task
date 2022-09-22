@@ -19,7 +19,7 @@ import {
 import { IoPawOutline } from 'react-icons/io5'
 import NavItem from '../components/NavItem'
 
-export default function Sidebar() {
+export default function Sidebar(props) {
     const [navSize, changeNavSize] = useState("large")
     return (
         <Flex
@@ -70,9 +70,9 @@ export default function Sidebar() {
             >
                 <Divider display={navSize == "small" ? "none" : "flex"} />
                 <Flex mt={4} align="center">
-                    <Avatar size="sm" src="avatar-1.jpg" />
+                    <Avatar size="sm" src={props.image} />
                     <Flex flexDir="column" ml={4} display={navSize == "small" ? "none" : "flex"}>
-                        <Heading as="h3" size="sm">Sylwia Weller</Heading>
+                        <Heading as="h3" size="sm">{props.name}</Heading>
                         <Text color="gray">Admin</Text>
                     </Flex>
                 </Flex>
