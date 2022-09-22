@@ -13,21 +13,14 @@ export default function Component() {
       <>
         <Flex w="100%">
           <Sidebar />
-          Signed in as {session.user.name} <br />
-          <button onClick={() => signOut()}>Sign out</button>
           <Flex
             pos="absolute"
             top="50%"
             left="50%"
             transform="translate(-50%, -50%)"
           >
-            <Text>Click the
-              <IconButton
-                background="none"
-                _hover={{ background: 'none' }}
-                icon={<FiMenu />}
-              />
-              to resize the vertical navigation bar.</Text>
+            Signed in as {session.user.name} <br />
+            <button onClick={() => signOut()}>Sign out</button>
           </Flex>
         </Flex>
       </>
