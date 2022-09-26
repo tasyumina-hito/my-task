@@ -1,9 +1,6 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import Sidebar from '../components/Sidebar'
-import { Flex, Text, IconButton } from '@chakra-ui/react'
-import { FiMenu } from 'react-icons/fi'
+import Calendar from '../components/Calendar'
+import { Flex, Box, Grid, GridItem, Text, IconButton } from '@chakra-ui/react'
 import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Component() {
@@ -11,17 +8,38 @@ export default function Component() {
   if (session) {
     return (
       <>
-        <Flex w="100%">
-          <Sidebar name={session.user.name} image={session.user.image} />
-          <Flex
-            pos="absolute"
-            top="50%"
-            left="50%"
-            transform="translate(-50%, -50%)"
-          >
+        <Grid
+          templateAreas={`"header header"
+                  "nav main"
+                  "nav footer"`}
+          gridTemplateRows={'50px 1fr 30px'}
+          gridTemplateColumns={'150px 1fr'}
+          h='200px'
+          gap='1'
+          color='blackAlpha.700'
+          fontWeight='bold'
+        >
+          <GridItem pl='2' bg='orange.300' area={'header'}>
+            Header
+          </GridItem>
+          <GridItem pl='2' position="sticky" zIndex={"sticky"}  area={'nav'}>
+            <Sidebar name={session.user.name} image={session.user.image} />
+          </GridItem>
+          <GridItem pl='2' h='calc(100vh)' area={'main'}>
+            <Calendar />
             Signed in as {session.user.name} <br />
             <button onClick={() => signOut()}>Sign out</button>
-          </Flex>
+          </GridItem>
+          <GridItem pl='2' bg='blue.300' area={'footer'}>
+            Footer
+          </GridItem>
+        </Grid>
+
+        <Flex>
+          <Box position="sticky" zIndex={"sticky"}>
+          </Box>
+          <Box display="flex" w="100%">
+          </Box>
         </Flex>
       </>
     )
