@@ -44,8 +44,6 @@ export default function Sidebar(props) {
                 <NavItem navSize={navSize} icon={FiHome} title="Dashboard" description="This is the description for the dashboard." />
                 <NavItem navSize={navSize} icon={FiCalendar} title="Calendar" active />
                 <NavItem navSize={navSize} icon={FiUser} title="Clients" />
-                <NavItem navSize={navSize} icon={IoPawOutline} title="Animals" />
-                <NavItem navSize={navSize} icon={FiDollarSign} title="Stocks" />
                 <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" />
                 <NavItem navSize={navSize} icon={FiSettings} title="Settings" />
             </Flex>
