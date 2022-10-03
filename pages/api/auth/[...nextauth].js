@@ -17,8 +17,10 @@ export default NextAuth({
         // ...add more providers here
     ],
     callbacks: {
-        async session({ session, user, token }) {
-            console.log(user);
+        async session({ session, user,task, token }) {
+            session.user.task = task;
+            session.userId = user.id;
+            console.log(session);
             return session;
         },
     },
